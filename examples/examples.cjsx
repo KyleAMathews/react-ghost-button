@@ -55,28 +55,28 @@ module.exports = React.createClass
           <h3 style={{marginBottom: 12}}>Green</h3>
           <GhostButton
             color="green"
-            hoverTextColor="white"
+            hoverTextColor="yellow"
           />
           <br />
           <br />
           <h3 style={{marginBottom: 12}}>Purple</h3>
           <GhostButton
             color="purple"
-            hoverTextColor="white"
+            hoverTextColor="yellow"
           />
           <br />
           <br />
           <h3 style={{marginBottom: 12}}>Gray</h3>
           <GhostButton
             color="gray"
-            hoverTextColor="white"
+            hoverTextColor="yellow"
           />
           <br />
           <br />
           <h3 style={{marginBottom: 12}}>Red</h3>
           <GhostButton
             color="red"
-            hoverTextColor="white"
+            hoverTextColor="yellow"
           />
         </div>
 
