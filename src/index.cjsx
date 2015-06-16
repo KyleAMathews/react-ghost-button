@@ -25,15 +25,15 @@ module.exports = React.createClass
     if @props.onClick then @props.onClick(e)
 
   render: ->
-    style:
-      padding: "5px 11px"
     <a
       {...@props}
       href={@props.href}
       onClick={@handleClick}
       onMouseOver={@handleMouseOver}
       onTouchStart={@handleMouseOver}
+      onFocus={@handleMouseOver}
       onMouseOut={@handleMouseOut}
+      onBlur={@handleMouseOut}
       onTouchEnd={=> setTimeout((=> @handleMouseOut()), 200)}
       style={assign({
         border: "1px solid #{@props.color}"

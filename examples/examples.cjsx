@@ -44,6 +44,25 @@ module.exports = React.createClass
 
         <br />
         <br />
+
+        <h2>In a form</h2>
+        <form
+          onSubmit={(e) -> e.preventDefault()}
+        >
+          <label>Some text</label><br/>
+          <input type="text"/><br/><br/>
+          <GhostButton
+            href=""
+            color="red"
+            hoverTextColor="white"
+            onClick={(e) -> e.preventDefault()}
+          >
+            Save me
+          </GhostButton>
+        </form>
+
+        <br />
+        <br />
         <h2>On a colored background</h2>
         <div
           style={{
