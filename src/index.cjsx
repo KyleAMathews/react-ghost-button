@@ -4,7 +4,6 @@ assign = require 'object-assign'
 module.exports = React.createClass
   getDefaultProps: ->
     color: 'white'
-    preventDefault: false
     hoverTextColor: 'black'
     children: "Hello World"
     href: 'https://google.com'
@@ -23,9 +22,7 @@ module.exports = React.createClass
       color: @props.color
 
   handleClick: (e) ->
-    if @props.preventDefault
-      e.preventDefault()
-    if @props.handleClick then @props.handleClick(e)
+    if @props.onClick then @props.onClick(e)
 
   render: ->
     style:
