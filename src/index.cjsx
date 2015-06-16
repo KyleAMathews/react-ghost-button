@@ -6,7 +6,6 @@ assign = require 'object-assign'
 Typography = require 'typography'
 typography = Typography()
 rhythm = {typography}
-typography.injectStyles()
 
 module.exports = React.createClass
   mixins: [tweenState.Mixin]
