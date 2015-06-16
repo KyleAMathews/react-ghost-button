@@ -1,57 +1,34 @@
 React = require 'react'
-tweenState = require('react-tween-state')
-chroma = require 'chroma-js'
-colorPicker = require 'color-pairs-picker'
 assign = require 'object-assign'
-Typography = require 'typography'
-typography = Typography()
-rhythm = {typography}
-typography.injectStyles()
 
 module.exports = React.createClass
   mixins: [tweenState.Mixin]
 
   getDefaultProps: ->
-    background: 'white'
-    color: 'blue'
+    color: 'white'
+    hoverTextColor: 'black'
     children: "Hello World"
-    typography: typography
     href: 'https://google.com'
 
   getInitialState: ->
-    {bg: bg, fg: fg} = colorPicker(
-      @props.background,
-      @props.color,
-      contrast: 4.5
-    )
-
-    fgChroma = chroma(fg)
-    colorScale = chroma.scale([fg, bg])
-
-    {
-      backgroundOpacity: 0
-      fgChroma: fgChroma
-      fg: fg
-      colorScale: colorScale
-    }
+    state: {}
 
   handleMouseOver: ->
-    @tweenState('backgroundOpacity', {
-      duration: 200
-      endValue: 1
-    })
+    @setState style:
+      background: @props.color
+      color: @props.hoverTextColor
 
   handleMouseOut: ->
-    @tweenState('backgroundOpacity', {
-      duration: 200
-      endValue: 0
-    })
+    @setState style:
+      background: 'none'
+      color: @props.color
 
   handleClick: (e) ->
     if @props.handleClick then @props.handleClick(e)
 
   render: ->
-    {rhythm, fontSizeToPx, fontSizeToMS} = @props.typography
+    style:
+      padding: "5px 11px"
     <a
       {...@props}
       href={@props.href}
@@ -61,13 +38,16 @@ module.exports = React.createClass
       onMouseOut={@handleMouseOut}
       onTouchEnd={=> setTimeout((=> @handleMouseOut()), 200)}
       style={assign({
-        background: @state.fgChroma.alpha(@getTweeningValue('backgroundOpacity')).css()
-        border: "1px solid #{@state.fg}"
+        border: "1px solid #{@props.color}"
         borderRadius: 4
-        color: @state.colorScale(@getTweeningValue('backgroundOpacity'))
-        padding: "calc(#{rhythm(1/4)} - 1px) calc(#{rhythm(1/2)} - 1px)"
+        color: @props.color
+        display: 'inline-block'
+        outline: 'none'
+        padding: "5px 11px"
+        transition: 'background-color 0.2s ease-out, color 0.2s ease-out'
         textDecoration: 'none'
-      }, @props.style)}
+        textAlign: 'center'
+      }, @props.style, @state.style)}
     >
       {@props.children}
     </a>
