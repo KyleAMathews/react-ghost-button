@@ -1,7 +1,7 @@
 {
   "name": "react-ghost-button",
   "description": "A simple react ghost button",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "bugs": {
     "url": "https://github.com/KyleAMathews/react-ghost-button/issues"
