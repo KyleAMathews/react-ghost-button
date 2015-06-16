@@ -2,8 +2,6 @@ React = require 'react'
 assign = require 'object-assign'
 
 module.exports = React.createClass
-  mixins: [tweenState.Mixin]
-
   getDefaultProps: ->
     color: 'white'
     hoverTextColor: 'black'
