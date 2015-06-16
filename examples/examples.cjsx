@@ -75,6 +75,7 @@ module.exports = React.createClass
           <br />
           <h3 style={{marginBottom: 12}}>Red</h3>
           <GhostButton
+            preventDefault
             color="red"
             hoverTextColor="yellow"
           />
