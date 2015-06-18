@@ -7,6 +7,7 @@ module.exports = React.createClass
     hoverTextColor: 'black'
     children: "Hello World"
     href: 'https://google.com'
+    element: 'a'
 
   getInitialState: ->
     state: {}
@@ -25,7 +26,8 @@ module.exports = React.createClass
     if @props.onClick then @props.onClick(e)
 
   render: ->
-    <a
+    Element = @props.element
+    <Element
       {...@props}
       href={@props.href}
       onClick={@handleClick}
@@ -36,6 +38,7 @@ module.exports = React.createClass
       onBlur={@handleMouseOut}
       onTouchEnd={=> setTimeout((=> @handleMouseOut()), 200)}
       style={assign({
+        background: 'none'
         border: "1px solid #{@props.color}"
         borderRadius: 4
         color: @props.color
@@ -48,4 +51,4 @@ module.exports = React.createClass
       }, @props.style, @state.style)}
     >
       {@props.children}
-    </a>
+    </Element>

@@ -63,6 +63,26 @@ module.exports = React.createClass
 
         <br />
         <br />
+
+        <h2>Set the element to button not default link</h2>
+        <form
+          onSubmit={(e) -> e.preventDefault()}
+        >
+          <GhostButton
+            element="button"
+            color="red"
+            hoverTextColor="white"
+            style={{
+              cursor: 'pointer'
+              font: 'inherit'
+            }}
+          >
+            I'm a button!
+          </GhostButton>
+        </form>
+
+        <br />
+        <br />
         <h2>On a colored background</h2>
         <div
           style={{
